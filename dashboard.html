@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Desa Suntenjaya</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="container nav-container">
+      <ul class="nav-menu">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="profil.html"><i class="fa-solid fa-users"></i> Profil Desa</a></li>
+        <li><a href="pertanian.html"><i class="fa-solid fa-leaf"></i> Pertanian</a></li>
+        <li><a href="perikanan.html"><i class="fa-solid fa-fish"></i> Perikanan</a></li>
+        <li><a href="peternakan.html"><i class="fa-solid fa-cow"></i> Peternakan</a></li>
+        <li><a href="dashboard.html"><i class="fa-solid fa-chart-column"></i> Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+<section class="page-header">
+
+<h1>Dashboard Desa Suntenjaya</h1>
+
+<p>
+Visualisasi data pertanian, perikanan, peternakan dan kependudukan.
+</p>
+
+</section>
+
+<!-- KARTU STATISTIK -->
+
+<section class="stats-dashboard">
+
+<div class="dashboard-card">
+
+<i class="fa-solid fa-users"></i>
+
+<h2>5.200</h2>
+
+<p>Jumlah Penduduk</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<i class="fa-solid fa-seedling"></i>
+
+<h2>120 Ton</h2>
+
+<p>Produksi Pertanian</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<i class="fa-solid fa-fish"></i>
+
+<h2>35 Ton</h2>
+
+<p>Produksi Perikanan</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<i class="fa-solid fa-cow"></i>
+
+<h2>4.180</h2>
+
+<p>Populasi Ternak</p>
+
+</div>
+
+</section>
+
+<!-- GRAFIK -->
+
+<section class="chart-section">
+
+<div class="chart-card">
+
+<h3>Produksi Sayuran</h3>
+
+<canvas id="pertanianChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Produksi Perikanan</h3>
+
+<canvas id="ikanChart"></canvas>
+
+</div>
+
+</section>
+
+<section class="chart-section">
+
+<div class="chart-card">
+
+<h3>Populasi Peternakan</h3>
+
+<canvas id="ternakChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Pendapatan Sektor</h3>
+
+<canvas id="pendapatanChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- DATA RINGKAS -->
+
+<div class="info-card">
+
+<h2>Ringkasan Data Desa</h2>
+
+<table class="table-data">
+
+<tr>
+
+<th>Indikator</th>
+
+<th>Data</th>
+
+</tr>
+
+<tr>
+
+<td>Jumlah Penduduk</td>
+
+<td>5.200 Jiwa</td>
+
+</tr>
+
+<tr>
+
+<td>Luas Wilayah</td>
+
+<td>1.250 Ha</td>
+
+</tr>
+
+<tr>
+
+<td>Kelompok Tani</td>
+
+<td>12 Kelompok</td>
+
+</tr>
+
+<tr>
+
+<td>Kelompok Perikanan</td>
+
+<td>6 Kelompok</td>
+
+</tr>
+
+<tr>
+
+<td>Kelompok Peternak</td>
+
+<td>8 Kelompok</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<script>
+
+// Pertanian
+
+new Chart(document.getElementById('pertanianChart'),{
+
+type:'bar',
+
+data:{
+
+labels:['Kubis','Wortel','Kentang','Tomat','Cabai','Bawang Daun'],
+
+datasets:[{
+
+label:'Ton/Tahun',
+
+data:[35,25,22,18,10,10],
+
+backgroundColor:[
+'#4CAF50',
+'#66BB6A',
+'#81C784',
+'#A5D6A7',
+'#388E3C',
+'#2E7D32'
+]
+
+}]
+
+}
+
+});
+
+// Perikanan
+
+new Chart(document.getElementById('ikanChart'),{
+
+type:'pie',
+
+data:{
+
+labels:['Nila','Mas','Lele','Gurame','Mujair'],
+
+datasets:[{
+
+data:[12,8,7,5,3],
+
+backgroundColor:[
+'#42A5F5',
+'#29B6F6',
+'#26C6DA',
+'#00ACC1',
+'#00838F'
+]
+
+}]
+
+}
+
+});
+
+// Peternakan
+
+new Chart(document.getElementById('ternakChart'),{
+
+type:'bar',
+
+data:{
+
+labels:['Sapi','Kambing','Domba','Ayam'],
+
+datasets:[{
+
+label:'Populasi',
+
+data:[420,610,500,2500],
+
+backgroundColor:[
+'#8D6E63',
+'#A1887F',
+'#6D4C41',
+'#BCAAA4'
+]
+
+}]
+
+}
+
+});
+
+// Pendapatan
+
+new Chart(document.getElementById('pendapatanChart'),{
+
+type:'doughnut',
+
+data:{
+
+labels:['Pertanian','Perikanan','Peternakan'],
+
+datasets:[{
+
+data:[1250,1112,6026],
+
+backgroundColor:[
+'#4CAF50',
+'#2196F3',
+'#FF9800'
+]
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
